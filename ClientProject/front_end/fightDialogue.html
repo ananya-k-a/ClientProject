@@ -397,6 +397,30 @@
 .fight-button {
   margin: 0 2vw;
 }
+/* --- Always keep fight menu horizontal, override all media queries --- */
+.fight-menu {
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: flex-end !important;
+  gap: 18px !important;
+  height: auto !important;
+  width: 100vw !important;
+  left: 0 !important;
+  right: 0 !important;
+  position: fixed !important;
+  bottom: 8px !important;
+  z-index: 20 !important;
+}
+
+.fight-button img {
+  height: 48px !important;
+  width: 48px !important;
+  max-width: 18vw !important;
+}
+
+.fight-button {
+  margin: 0 2vw !important;
+}
   </style>
 </head>
 <body>
