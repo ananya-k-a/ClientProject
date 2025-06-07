@@ -279,6 +279,80 @@
     margin: 6px 0;
   }
 }
+
+/* --- iPhone 12 Pro and similar mobile screens --- */
+@media (max-width: 430px) {
+  html, body, .dialogue-container {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+  }
+  .dialogue-box, .popup-box {
+    padding: 6px 2vw 12px;
+    font-size: 0.95rem;
+    max-width: 99vw;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 70px;
+  }
+  .speaker-name, .dialogue-text {
+    font-size: 1.05rem;
+    word-break: break-word;
+  }
+  #pebbleHealth, #hamHealth {
+    font-size: 0.95rem;
+    top: 4px;
+    left: 8px;
+    right: 8px;
+    text-shadow: 1px 1px 4px #000;
+    z-index: 10;
+  }
+  #pebbleHealth {
+    left: 8px;
+    right: auto;
+  }
+  #hamHealth {
+    right: 8px;
+    left: auto;
+  }
+  #musicSettingsBtn {
+    font-size: 0.8rem;
+    padding: 2px 6px;
+    top: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70vw;
+    max-width: 260px;
+  }
+  .fight-menu {
+    flex-direction: column;
+    height: auto;
+    bottom: 8px;
+    gap: 8px;
+    width: 100vw;
+    left: 0;
+    right: 0;
+    position: fixed;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 20;
+  }
+  .fight-button img {
+    height: 38px;
+    width: 38px;
+  }
+  .fight-button {
+    margin: 2px 0;
+  }
+  .character {
+    height: 70px;
+    bottom: 90px;
+  }
+  .character.active {
+    height: 110px;
+  }
+}
+
   </style>
 </head>
 <body>
