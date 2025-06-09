@@ -463,7 +463,7 @@ function checkHealAnswer() {
     feedback.className = 'quiz-feedback';
     feedback.style.color = 'pink';
     feedback.style.marginTop = '10px';
-    feedback.textContent = `Wrong ❌ Remember that this is in the present tense, this word can mean to make something new, try again!`;
+    feedback.textContent = `Wrong ❌ Remember that this is a verb that involves multiple subjects, try again!`;
     popup.querySelector('.popup-content').appendChild(feedback);
     setTimeout(() => {
       if (feedback.parentNode) feedback.parentNode.removeChild(feedback);
@@ -725,7 +725,7 @@ function checkAnswers(type = false) {
       feedback.className = 'quiz-feedback';
       feedback.style.color = 'pink';
       feedback.style.marginTop = '10px';
-      feedback.textContent = `Wrong ❌ Try again! (${MAX_ATTEMPTS - quizAttempts} tries left)`;
+      feedback.textContent = `Wrong ❌ Remember that this is in the present tense, this word can mean to make something new, try again! (${MAX_ATTEMPTS - quizAttempts} tries left)`;
       popupBox.querySelector('.popup-content').appendChild(feedback);
       setTimeout(() => {
         if (feedback.parentNode) feedback.parentNode.removeChild(feedback);
