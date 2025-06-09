@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
-  <a href = "ResertPassword.html" class="reset-link"> Forgot your password? </a>
+  <a href="ResetPassword.html" class="reset-link">Forgot your password?</a>
   <style>
     * {
       margin: 0;
@@ -17,9 +17,8 @@
       color: white;
     }
 
-
     .hero {
-      background-image: url("signin.png");
+      background-image: url("https://raw.githubusercontent.com/ananya-k-a/ClientProject/refs/heads/main/ClientProject/front_end/signin.png");
       background-attachment: fixed;
       background-size: cover;
       background-position: top;
@@ -41,9 +40,8 @@
       text-align: center;
     }
 
-
     .intro {
-      width: 41ch; 
+      width: 41ch;
       white-space: nowrap;
       overflow: hidden;
       border-right: .15em solid white;
@@ -52,20 +50,30 @@
       margin-top: -550px;
       text-shadow: 3px 5px 1px #00000094;
     }
+
     .intro h2 {
       text-align: center;
       font-size: 30px;
-        
     }
 
     @keyframes typing {
-      from { width: 0; }
-      to { width: 90%; }
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 90%;
+      }
     }
 
     @keyframes blink {
-      from { border-color: transparent; }
-      to { border-color: white; }
+      from {
+        border-color: transparent;
+      }
+
+      to {
+        border-color: white;
+      }
     }
 
     .reset-link {
@@ -81,7 +89,6 @@
       text-decoration: underline;
     }
 
-    /* designs the submit button */
     .signUpB {
       background-color: #b06a9c5c;
       color: #ffffff;
@@ -94,11 +101,10 @@
       top: 40px;
       left: 1250px;
       border: 2px solid rgba(255, 255, 255, 0.778);
-      border-radius: 0; 
-      box-shadow: 4px 4px 0 #00000094; 
+      border-radius: 0;
+      box-shadow: 4px 4px 0 #00000094;
       text-shadow: 2px 3px 2px #00000094;
       cursor: pointer;
-
     }
 
     .log {
@@ -110,7 +116,7 @@
       height: 50px;
       position: absolute;
       border: 2px solid rgba(255, 255, 255, 0.778);
-      box-shadow: 4px 4px 0 #00000094; 
+      box-shadow: 4px 4px 0 #00000094;
       text-shadow: 2px 3px 2px #00000094;
       text-align: center;
       left: 550px;
@@ -119,16 +125,17 @@
     .log::placeholder {
       color: rgba(255, 255, 255, 0.68);
     }
+
     .logUser {
       top: 300px;
     }
 
-    .logPass{
+    .logPass {
       top: 400px;
     }
 
     .logB {
-       background-color: #b06a9c76;
+      background-color: #b06a9c76;
       color: #ffffff;
       font-family: 'Press Start 2P';
       font-size: 20px;
@@ -139,23 +146,18 @@
       top: 500px;
       left: 640px;
       border: 2px solid rgba(255, 255, 255, 0.778);
-      border-radius: 0; 
-      box-shadow: 4px 4px 0 #00000094; 
+      border-radius: 0;
+      box-shadow: 4px 4px 0 #00000094;
       text-shadow: 2px 3px 2px #00000094;
       cursor: pointer;
     }
-
-
-    
   </style>
 </head>
 <body>
-  <div id="button-container"></div> 
-  <div id="user-container"></div> 
-  <div id="password-container"></div> 
+  <div id="button-container"></div>
+  <div id="user-container"></div>
+  <div id="password-container"></div>
   <div id="login-container"></div>
-
-
 
   <div class="hero">
     <h1>Rootbound</h1>
@@ -163,6 +165,63 @@
   <div class="intro">
     <h2>Welcome to the Latin and Greek Roots Game!</h2>
   </div>
-  <script type="module" src="FrontPage.js"></script> 
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+    import { firebaseConfig } from './firebaseConfig.js';
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const signB = document.createElement('button');
+    signB.textContent = 'Sign Up';
+    signB.className = 'signUpB';
+
+    signB.addEventListener('click', function () {
+      window.location.href = 'SignInPage.html';
+    });
+
+    document.getElementById('button-container').appendChild(signB);
+
+    const logUser = document.createElement('input');
+    logUser.placeholder = 'Username';
+    logUser.classList.add('log', 'logUser');
+    logUser.id = 'emailInput';
+    document.getElementById('user-container').appendChild(logUser);
+
+    const logPass = document.createElement('input');
+    logPass.placeholder = 'Password';
+    logPass.classList.add('log', 'logPass');
+    logPass.id = 'passInput';
+    logPass.type = 'password';
+    document.getElementById('password-container').appendChild(logPass);
+
+    const logB = document.createElement('button');
+    logB.textContent = 'Submit';
+    logB.className = 'logB';
+    document.getElementById('login-container').appendChild(logB);
+
+    logB.addEventListener('click', checkUser);
+
+    async function checkUser() {
+      const email = document.getElementById('emailInput').value.trim();
+      const password = document.getElementById('passInput').value.trim();
+
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        if (user.emailVerified) {
+          window.location.href = "Dialogue.html";
+        } else {
+          alert("Verify your email before logging in.");
+        }
+      } catch (error) {
+        alert("Login failed: " + error.message);
+      }
+    }
+  </script>
 </body>
 </html>
+
