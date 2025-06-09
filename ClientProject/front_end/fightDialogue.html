@@ -463,7 +463,7 @@ function checkHealAnswer() {
     feedback.className = 'quiz-feedback';
     feedback.style.color = 'pink';
     feedback.style.marginTop = '10px';
-    feedback.textContent = `Wrong ❌ Remember that a synonym is a word with a similar meaning. You can do this verb to impact others, try again!`;
+    feedback.textContent = `Wrong ❌ Remember that this is in the present tense, this word can mean to make something new, try again!`;
     popup.querySelector('.popup-content').appendChild(feedback);
     setTimeout(() => {
       if (feedback.parentNode) feedback.parentNode.removeChild(feedback);
@@ -691,16 +691,10 @@ function checkAnswers(type = false) {
       document.getElementById('nextBtn').disabled = false;
       // Only show victory lines if hamLives is 0
      if (hamLives <= 0) {
-  // Insert both victory messages
   dialogues.splice(currentIndex, 0, { speaker: "Ham", text: "You did it! I'm out of tricks!", gifType: 1 });
-  dialogues.splice(currentIndex + 1, 0, { speaker: "Ham", text: "No way... You actually beat me!", gifType: 1 });
-
-  // Show "You did it! I'm out of tricks!"
   nextDialogue();
-
-  // After a short delay, show "No way... You actually beat me!", which will then trigger the redirect
   setTimeout(() => {
-    nextDialogue();
+    window.location.href = "EndingScreen.html";
   }, 1200);
   return;
 } else {
@@ -731,7 +725,7 @@ function checkAnswers(type = false) {
       feedback.className = 'quiz-feedback';
       feedback.style.color = 'pink';
       feedback.style.marginTop = '10px';
-      feedback.textContent = `Wrong ❌ Remember that these words are used in the present tense. Try again! (${MAX_ATTEMPTS - quizAttempts} tries left)`;
+      feedback.textContent = `Wrong ❌ Try again! (${MAX_ATTEMPTS - quizAttempts} tries left)`;
       popupBox.querySelector('.popup-content').appendChild(feedback);
       setTimeout(() => {
         if (feedback.parentNode) feedback.parentNode.removeChild(feedback);
