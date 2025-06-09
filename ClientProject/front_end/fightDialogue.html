@@ -690,12 +690,20 @@ function checkAnswers(type = false) {
       popupBox.style.display = 'none';
       document.getElementById('nextBtn').disabled = false;
       // Only show victory lines if hamLives is 0
-      if (hamLives <= 0) {
-        dialogues.splice(currentIndex, 0, { speaker: "Ham", text: "You did it! I'm out of tricks!", gifType: 1 });
-        dialogues.splice(currentIndex + 1, 0, { speaker: "Ham", text: "No way... You actually beat me!", gifType: 1 });
-        nextDialogue();
-        return;
-      } else {
+     if (hamLives <= 0) {
+  // Insert both victory messages
+  dialogues.splice(currentIndex, 0, { speaker: "Ham", text: "You did it! I'm out of tricks!", gifType: 1 });
+  dialogues.splice(currentIndex + 1, 0, { speaker: "Ham", text: "No way... You actually beat me!", gifType: 1 });
+
+  // Show "You did it! I'm out of tricks!"
+  nextDialogue();
+
+  // After a short delay, show "No way... You actually beat me!", which will then trigger the redirect
+  setTimeout(() => {
+    nextDialogue();
+  }, 1200);
+  return;
+} else {
         dialogues.splice(currentIndex, 0, { speaker: "Ham", text: "Oof! That stung!", gifType: 1 });
       }
       nextDialogue();
