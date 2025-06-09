@@ -463,7 +463,7 @@ function checkHealAnswer() {
     feedback.className = 'quiz-feedback';
     feedback.style.color = 'pink';
     feedback.style.marginTop = '10px';
-    feedback.textContent = `Wrong ❌ Try again!`;
+    feedback.textContent = `Wrong ❌ Remember that this is in the present tense, this word can mean to make something new, try again!`;
     popup.querySelector('.popup-content').appendChild(feedback);
     setTimeout(() => {
       if (feedback.parentNode) feedback.parentNode.removeChild(feedback);
