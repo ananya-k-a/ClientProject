@@ -1,158 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
-  <a href="ResetPassword.html" class="reset-link">Forgot your password?</a>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <head>
+        <meta charset="UTF-8" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+            rel="stylesheet"
+        />
+        <a href="ResetPassword.html" class="reset-link">Forgot your password?</a>
+        <style>
+            html,
+            body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                background: url("https://raw.githubusercontent.com/ananya-k-a/ClientProject/refs/heads/main/ClientProject/front_end/signin.png") center center / cover no-repeat;
+                font-family: "Press Start 2P", monospace;
+                color: white;
+                overflow: hidden;
+            }
 
-    body {
-      background: #b06a9c6a;
-      font-family: 'Press Start 2P';
-      color: white;
-    }
+            .hero h1 {
+                width: 0;
+                position: absolute;
+                top: 50px;
+                left: 500px;
+                text-align: center;
+                font-size: 3rem;
+                text-shadow: 3px 5px 1px #00000094;
+            }
 
-    .hero {
-      background-image: url("https://raw.githubusercontent.com/ananya-k-a/ClientProject/refs/heads/main/ClientProject/front_end/signin.png");
-      background-attachment: fixed;
-      background-size: cover;
-      background-position: top;
-      height: 1000px;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: -250px;
-      font-size: 25px;
-      text-shadow: 3px 5px 2px #000000d7;
-    }
+            .intro h2 {
+                width: 100%;
+                margin: 0 auto;
+                text-align: center;
+                font-size: 30px;
+                position: absolute;
+                top: 250px;
+                right: 40%;
+                left: 0%;
+                text-shadow: 3px 5px 1px #00000094;
+                white-space: nowrap;
+                overflow: hidden;
+            }
 
-    .hero h1 {
-      width: 0;
-      position: absolute;
-      top: 50px;
-      left: 500px;
-      text-align: center;
-    }
+            .signUpB,
+            .logB {
+                background:  #b06a9c5c !important;
+                color: white !important;
+                border: 1.5px solid #fff !important;
+                border-radius: 0px !important;
+                font-size: 1.5rem !important;
+                font-family: "Press Start 2P", monospace;
+                padding: 25px 20px !important;
+                text-shadow: 3px 5px 1px #00000094;
+                transition: background 0.2s;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            }
 
-    .intro {
-      width: 41ch;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: .15em solid white;
-      animation: typing 4.5s steps(45) forwards, blink 1.25s infinite;
-      margin: 0 auto;
-      margin-top: -550px;
-      text-shadow: 3px 5px 1px #00000094;
-    }
+            
+            /* login boxes */
+            .log {
+                position: absolute;
+                text-align: center;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 50vw;
+                max-width: 800px;
+                background: #b06a9c6a;
+                font-size: 1.25rem;
+                font-family: 'Press Start 2P';
+                color: #b06a9c6a;
+                padding: 25px 45px 60px;
+                border: 2.5px solid #fff;
+                box-shadow: 4px 4px 0 #00000094;
+                text-shadow: 2px 3px 2px #00000094;
+            }
 
-    .intro h2 {
-      text-align: center;
-      font-size: 30px;
-    }
+            .logUser {
+                width: 25%;
+                height: 3%;
+                padding: 17px;
+                margin-bottom: 375px;
+                border: 1.5px solid #fff;
+                border-radius: 2px;
+                background: rgba(255, 255, 255, 0.1);
+                color: #ffffff;
+                font-size: 1.5rem;
+            }
 
-    @keyframes typing {
-      from {
-        width: 0;
-      }
+            .logPass {
+                width: 25%;
+                height: 3%;
+                padding: 17px;
+                margin-bottom: 275px;
+                border: 1.5px solid #fff;
+                border-radius: 2px;
+                background: rgba(255, 255, 255, 0.1);
+                color: #ffffff;
+                font-size: 1.5rem;
+            }
 
-      to {
-        width: 90%;
-      }
-    }
+            .signUpB,
+            .logB {
+                position: absolute;
+                bottom: 20px;
+                z-index: 3;
+            }
 
-    @keyframes blink {
-      from {
-        border-color: transparent;
-      }
+            .signUpB {
+                bottom: auto;
+                right: auto;
+                left: 85%;
+                top: 75px;
+                transform: translateX(-25%);
+            }
 
-      to {
-        border-color: white;
-      }
-    }
+            .logB {
+                top: auto;
+                right: auto;
+                left: 50%;
+                bottom: 175px;
+                transform: translateX(-50%);
+            }
+            .log::placeholder {
+                color: rgba(255, 255, 255, 0.68);
+            }
 
-    .reset-link {
-      position: absolute;
-      top: 675px;
-      right: 500px;
-      color: white;
-      text-decoration: none;
-      font-family: 'Press Start 2P';
-      text-shadow: 2px 3px 2px #00000094;
-      cursor: pointer;
-      font-size: 20px;
-      text-decoration: underline;
-    }
-
-    .signUpB {
-      background-color: #b06a9c5c;
-      color: #ffffff;
-      font-family: 'Press Start 2P';
-      font-size: 20px;
-      width: 175px;
-      height: 65px;
-      position: absolute;
-      text-align: center;
-      top: 40px;
-      left: 1250px;
-      border: 2px solid rgba(255, 255, 255, 0.778);
-      border-radius: 0;
-      box-shadow: 4px 4px 0 #00000094;
-      text-shadow: 2px 3px 2px #00000094;
-      cursor: pointer;
-    }
-
-    .log {
-      background-color: #b06a9c6a;
-      color: white;
-      font-family: 'Press Start 2P';
-      font-size: 20px;
-      width: 350px;
-      height: 50px;
-      position: absolute;
-      border: 2px solid rgba(255, 255, 255, 0.778);
-      box-shadow: 4px 4px 0 #00000094;
-      text-shadow: 2px 3px 2px #00000094;
-      text-align: center;
-      left: 550px;
-    }
-
-    .log::placeholder {
-      color: rgba(255, 255, 255, 0.68);
-    }
-
-    .logUser {
-      top: 300px;
-    }
-
-    .logPass {
-      top: 400px;
-    }
-
-    .logB {
-      background-color: #b06a9c76;
-      color: #ffffff;
-      font-family: 'Press Start 2P';
-      font-size: 20px;
-      width: 175px;
-      height: 65px;
-      position: absolute;
-      text-align: center;
-      top: 500px;
-      left: 640px;
-      border: 2px solid rgba(255, 255, 255, 0.778);
-      border-radius: 0;
-      box-shadow: 4px 4px 0 #00000094;
-      text-shadow: 2px 3px 2px #00000094;
-      cursor: pointer;
-    }
-  </style>
-</head>
+            .reset-link {
+                position: absolute;
+                top: 750px;
+                right: 500px;
+                color: white;
+                text-decoration: none;
+                font-family: 'Press Start 2P';
+                text-shadow: 2px 3px 2px #00000094;
+                cursor: pointer;
+                font-size: 20px;
+                text-decoration: underline;
+            }
+                
+        </style>
 <body>
   <div id="button-container"></div>
   <div id="user-container"></div>
@@ -198,7 +186,7 @@
     document.getElementById('password-container').appendChild(logPass);
 
     const logB = document.createElement('button');
-    logB.textContent = 'Submit';
+    logB.textContent = 'Log-In';
     logB.className = 'logB';
     document.getElementById('login-container').appendChild(logB);
 
@@ -222,6 +210,26 @@
       }
     }
   </script>
+
+  <!-- Add this just before </body> -->
+<script>
+  // Typing effect for the intro h2
+  function typeIntroText(text, elem, i = 0) {
+    if (i <= text.length) {
+      elem.innerHTML = text.slice(0, i) + '<span style="border-right:.15em solid white"></span>';
+      setTimeout(() => typeIntroText(text, elem, i + 1), 60);
+    } else {
+      elem.innerHTML = text;
+    }
+  }
+  document.addEventListener("DOMContentLoaded", function() {
+    const introElem = document.querySelector('.intro h2');
+    const introText = introElem.textContent;
+    introElem.textContent = '';
+    typeIntroText(introText, introElem);
+  });
+  
+</script>
 </body>
 </html>
 
