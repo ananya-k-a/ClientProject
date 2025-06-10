@@ -20,14 +20,14 @@
             }
 
             .hero h1 {
-                width: 0;
-                position: absolute;
-                top: 50px;
-                left: 500px;
-                text-align: center;
-                font-size: 3rem;
-                text-shadow: 3px 5px 1px #00000094;
-            }
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    text-align: center;
+    font-size: 3rem;
+    text-shadow: 3px 5px 1px #00000094;
+}
 
             .intro h2 {
                 width: 100%;
@@ -107,6 +107,7 @@
                 position: absolute;
                 bottom: 20px;
                 z-index: 3;
+                
             }
 
             .signUpB {
@@ -130,16 +131,16 @@
 
             .reset-link {
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     top: 880px;
-    right: 650px;
     color: white;
-    text-decoration: none;
+    text-decoration: underline;
     font-family: 'Press Start 2P';
     text-shadow: 2px 3px 2px #00000094;
     cursor: pointer;
     font-size: 20px;
-    text-decoration: underline;
-            }
+}
                 
         </style>
 <body>
@@ -207,12 +208,11 @@
           alert("Verify your email before logging in.");
         }
       } catch (error) {
-        alert("Login failed: " + error.message);
+        alert("Please enter a valid email and password");
       }
     }
   </script>
 
-  <!-- Add this just before </body> -->
 <script>
   // Typing effect for the intro h2
   function typeIntroText(text, elem, i = 0) {
@@ -233,4 +233,5 @@
 </script>
 </body>
 </html>
+
 
